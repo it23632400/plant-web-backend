@@ -63,7 +63,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 
-        // ✅ Replace * with your actual frontend URL
+        // ✅ Replace with your actual deployed Vercel domain
         config.setAllowedOrigins(List.of("https://plant-web-admin-six.vercel.app"));
 
         config.setAllowedHeaders(List.of("*"));
@@ -74,6 +74,7 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
         return source;
     }
+
 
 
     @Bean
