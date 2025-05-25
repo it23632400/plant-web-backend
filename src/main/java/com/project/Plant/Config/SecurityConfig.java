@@ -63,18 +63,18 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 
-        // Allow all origins - suitable for public APIs or development
-        config.setAllowedOriginPatterns(List.of("*")); // Allow any frontend to access
+        // ✅ Replace * with your actual frontend URL
+        config.setAllowedOrigins(List.of("https://plant-web-admin-six.vercel.app"));
 
-        config.setAllowedHeaders(List.of("*")); // Allow all headers
-
+        config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD"));
-        config.setMaxAge(3600L); // Cache preflight response for 1 hour
+        config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
     }
+
 
     @Bean
     public CorsFilter corsFilter() {
